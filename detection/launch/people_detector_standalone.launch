@@ -9,7 +9,7 @@
   <arg name="ground_from_calibration" default="false" />
 
   <!-- Launch sensor -->
-  <include file="$(find kinect2_bridge)/launch/kinect2_bridge_ir.launch">
+  <include file="$(find opt_utils)/launch/kinect2_bridge_ir.launch">
     <arg name="sensor_id"           value="$(arg sensor_id)" />
     <arg name="base_name"         value="$(arg sensor_name)" />
     <arg name="publish_tf"       value="true" />
