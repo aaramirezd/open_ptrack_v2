@@ -194,8 +194,8 @@ public:
       nh(), spinner(0), it(nh) ,show_2D_tracks(show_2D_tracks), number_of_frames_for_static_background(number_of_frames_for_static_bs)
   {
     std::string cameraName = "kinect2_head";
-    topicColor = "/" + cameraName + "/" + K2_TOPIC_SD K2_TOPIC_IMAGE_COLOR K2_TOPIC_IMAGE_RECT; //K2_TOPIC_LORES_COLOR K2_TOPIC_RAW;
-    topicDepth = "/" + cameraName + "/" + K2_TOPIC_SD K2_TOPIC_IMAGE_DEPTH; //K2_TOPIC_LORES_DEPTH K2_TOPIC_RAW;
+    topicColor = "/" + cameraName + "/" + K2_TOPIC_LORES_COLOR K2_TOPIC_RAW;
+    topicDepth = "/" + cameraName + "/" + K2_TOPIC_LORES_DEPTH K2_TOPIC_RAW;
 
     cameraMatrixColor = cv::Mat::zeros(3, 3, CV_64F);
     cameraMatrixDepth = cv::Mat::zeros(3, 3, CV_64F);
