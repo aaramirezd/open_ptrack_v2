@@ -1,0 +1,63 @@
+//To create launch files needed for calibration, run the following on the master PC:
+
+roslaunch opt_calibration calibration_initializer.launch
+
+//And run the following on every PC (including the master):
+
+roslaunch opt_calibration listener.launch
+****************************************************************************************************
+roslaunch opt_calibration opt_calibration_master.launch
+
+//Then, for every sensor, run (on the PC attached to that sensor):
+
+roslaunch opt_calibration sensor_kinect2_a.launch
+roslaunch opt_calibration sensor_kinect2_b.launch
+roslaunch opt_calibration sensor_kinect2_c.launch
+****************************************************************************************************
+//Then, all calibration data can be saved by running:
+
+rostopic pub /opt_calibration/action std_msgs/String "save" -1
+
+****************************************************************************************************
+//To copy the detection/launch/camera_poses.txt file to the detection/launch folder of every PC, run:
+
+roslaunch opt_calibration detection_initializer.launch 
+
+//And on every PC (including the master), run:
+
+roslaunch opt_calibration listener.launch
+
+****************************************************************************************************
+//In particular, in every PC attached to a sensor, the previously-saved launch file detection_node_<sensor_id>.launch should be run as follows:
+
+roslaunch detection detection_node_<sensor_id>.launch
+
+//Then, in the master PC, run:
+
+roslaunch opt_calibration opt_calibration_refinement.launch
+****************************************************************************************************
+//When the entire area has been covered (more than once), to start the calibration refinement algorithm, run:
+
+rostopic pub /opt_calibration/action std_msgs/String "save" -1
+
+//In order to use this refinement at tracking time, be sure that the calibration_refinement flag in the tracking/conf folder is set to true
+
+****************************************************************************************************
+//This node is particularly useful for you to check the calibration refinement (person-based or manual).
+
+<start OPTv2 (tracker and detection_nodes)>
+roslaunch opt_utils cloud_refinement.launch
+Open RViz and displays the clouds (you should display the <cloud_name>_refined ones)
+
+****************************************************************************************************
+//For just tracking, in the master PC, run:
+roslaunch tracking tracking_node.launch enable_pose:=true enable_object:=false enable_people_tracking:=false
+//And in every PC attached to a sensor, 
+roslaunch detection detection_node_kinect2_a.launch enable_pose:=true enable_object:=false enable_people_tracking:=false
+roslaunch detection detection_node_kinect2_b.launch enable_pose:=true enable_object:=false enable_people_tracking:=false
+roslaunch detection detection_node_kinect2_c.launch enable_pose:=true enable_object:=false enable_people_tracking:=false
+//To enable/disable this refinement in real time via dynamic reconfigure GUI, run:
+
+rosrun rqt_reconfigure rqt_reconfigure
+
+

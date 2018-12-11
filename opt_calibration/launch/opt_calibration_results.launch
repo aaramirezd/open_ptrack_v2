@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- CALIBRATION ID: 1542713056 -->
+<launch>
+
+  <!-- Network parameters -->
+
+  <!-- pc: PC2 -->
+  <!-- sensor: kinect2_b -->
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_b_broadcaster"
+        args="3.17899 0.465755 1.44246 0.531704 0.549824 -0.462036 -0.448896 /world /kinect2_b 100" />
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_b_broadcaster_2"
+        args="0 0 0 0 0 0 /kinect2_b /kinect2_b_link 100" />
+
+  <!-- pc: PC3 -->
+  <!-- sensor: kinect2_c -->
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_c_broadcaster"
+        args="1.33409 -1.38333 1.46029 -0.770504 -0.020448 0.0165238 0.636893 /world /kinect2_c 100" />
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_c_broadcaster_2"
+        args="0 0 0 0 0 0 /kinect2_c /kinect2_c_link 100" />
+
+  <!-- pc: PC1 -->
+  <!-- sensor: kinect2_a -->
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_a_broadcaster"
+        args="0.969676 2.35571 1.46495 0.00571377 0.789931 -0.613002 -0.0143396 /world /kinect2_a 100" />
+  <node pkg="tf" type="static_transform_publisher" name="kinect2_a_broadcaster_2"
+        args="0 0 0 0 0 0 /kinect2_a /kinect2_a_link 100" />
+
+</launch>

@@ -1,0 +1,68 @@
+# Auto generated file.
+calibration_id: 1542713056
+
+# Poses w.r.t. the "world" reference frame
+poses:
+  kinect2_a:
+    translation:
+      x: 0.969676
+      y: 2.35571
+      z: 1.46495
+    rotation:
+      x: 0.00571377
+      y: 0.789931
+      z: -0.613002
+      w: -0.0143396
+  kinect2_b:
+    translation:
+      x: 3.17899
+      y: 0.465755
+      z: 1.44246
+    rotation:
+      x: 0.531704
+      y: 0.549824
+      z: -0.462036
+      w: -0.448896
+  kinect2_c:
+    translation:
+      x: 1.33409
+      y: -1.38333
+      z: 1.46029
+    rotation:
+      x: -0.770504
+      y: -0.020448
+      z: 0.0165238
+      w: 0.636893
+
+# Inverse poses
+inverse_poses:
+  kinect2_a:
+    translation:
+      x: 0.88361
+      y: 0.842138
+      z: 2.67316
+    rotation:
+      x: 0.00571377
+      y: 0.789931
+      z: -0.613002
+      w: 0.0143396
+  kinect2_b:
+    translation:
+      x: -0.368478
+      y: 0.877866
+      z: 3.39075
+    rotation:
+      x: 0.531704
+      y: 0.549824
+      z: -0.462036
+      w: 0.448896
+  kinect2_c:
+    translation:
+      x: -1.26039
+      y: 1.16031
+      z: 1.70028
+    rotation:
+      x: 0.770504
+      y: 0.020448
+      z: -0.0165238
+      w: 0.636893
