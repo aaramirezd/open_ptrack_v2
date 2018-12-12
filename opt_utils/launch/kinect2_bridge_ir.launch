@@ -90,5 +90,4 @@
     <remap from="depth_registered/points"     to="$(arg base_name)/sd/points"/>
     <param name="queue_size" type="int" value="$(arg queue_size)"/>
   </node>
-
 </launch>

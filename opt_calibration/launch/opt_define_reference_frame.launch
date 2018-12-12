@@ -8,6 +8,7 @@
   <!-- Network parameters -->
   <arg name="num_sensors"   default="3" />
 
+<<<<<<< HEAD
   <arg name="sensor_0_id"   default="kinect2_a" />
   <arg name="sensor_0_name" default="$(arg sensor_0_id)" />
 
@@ -15,6 +16,15 @@
   <arg name="sensor_1_name" default="$(arg sensor_1_id)" />
 
   <arg name="sensor_2_id"   default="kinect2_c" />
+=======
+  <arg name="sensor_0_id"   default="kinect01" />
+  <arg name="sensor_0_name" default="$(arg sensor_0_id)" />
+
+  <arg name="sensor_1_id"   default="kinect02" />
+  <arg name="sensor_1_name" default="$(arg sensor_1_id)" />
+
+  <arg name="sensor_2_id"   default="kinect03" />
+>>>>>>> 65bb19a8cb152566b9615005b52245605090033c
   <arg name="sensor_2_name" default="$(arg sensor_2_id)" />
 
   <!-- Launching calibration -->
@@ -25,6 +35,7 @@
 
     <param name="sensor_0/name"         value="/$(arg sensor_0_name)" />
     <param name="sensor_0/type"         value="pinhole_rgb" />
+<<<<<<< HEAD
     <remap from="~sensor_0/image"       to="/$(arg sensor_0_name)/hd/image_color_rect" />
     <remap from="~sensor_0/camera_info" to="/$(arg sensor_0_name)/hd/camera_info" />
 
@@ -37,6 +48,20 @@
     <param name="sensor_2/type"         value="pinhole_rgb" />
     <remap from="~sensor_2/image"       to="/$(arg sensor_2_name)/hd/image_color_rect" />
     <remap from="~sensor_2/camera_info" to="/$(arg sensor_2_name)/hd/camera_info" />
+=======
+    <remap from="~sensor_0/image"       to="/$(arg sensor_0_name)/rgb_rect/image" />
+    <remap from="~sensor_0/camera_info" to="/$(arg sensor_0_name)/rgb_rect/camera_info" />
+
+    <param name="sensor_1/name"         value="/$(arg sensor_1_name)" />
+    <param name="sensor_1/type"         value="pinhole_rgb" />
+    <remap from="~sensor_1/image"       to="/$(arg sensor_1_name)/rgb_rect/image" />
+    <remap from="~sensor_1/camera_info" to="/$(arg sensor_1_name)/rgb_rect/camera_info" />
+
+    <param name="sensor_2/name"         value="/$(arg sensor_2_name)" />
+    <param name="sensor_2/type"         value="pinhole_rgb" />
+    <remap from="~sensor_2/image"       to="/$(arg sensor_2_name)/rgb_rect/image" />
+    <remap from="~sensor_2/camera_info" to="/$(arg sensor_2_name)/rgb_rect/camera_info" />
+>>>>>>> 65bb19a8cb152566b9615005b52245605090033c
 
   </node>
 
