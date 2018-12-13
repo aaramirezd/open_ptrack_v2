@@ -1,10 +1,19 @@
 <launch>
-  <node pkg="opt_utils" type="ros2udp_converter_pose" name="ros2udp_converter_pose" output="screen">
+  <arg name="data_path" default="$(env HOME)/outpu_file.txt"/>
+  <arg name="record_data" default="false"/>
+  
+  <node pkg="opt_utils" type="ros2udp_converter_pose" name="ros2udp_converter_pose" output="screen" unless="$(arg record_data)">
     <remap from ="~input_topic" to="/tracker/tracks_smoothed"/>  
-    <remap from ="~alive_ids_topic" to="/tracker/alive_ids"/>  
+    <remap from ="~alive_ids_topic" to="/tracker/alive_ids"/>
     <rosparam command="load" file="$(find opt_utils)/conf/json_udp.yaml" /> 
   </node>
 
+  <node pkg="opt_utils" type="ros2udp2file_converter_pose" name="ros2udp2file_converter_pose" output="screen" if="$(arg record_data)">
+    <remap from ="~input_topic" to="/tracker/tracks_smoothed"/>  
+    <remap from ="~alive_ids_topic" to="/tracker/alive_ids"/>
+    <param name="data_saved_path" value="$(arg data_path)"/>  
+    <rosparam command="load" file="$(find opt_utils)/conf/json_udp.yaml" /> 
+  </node>
   <!--node pkg="opt_utils" type="ros2udp_converter" name="ros2udp_converter" output="screen">
     <remap from ="~input_topic" to="/tracker/tracks_smoothed"/>
     <remap from ="~alive_ids_topic" to="/tracker/alive_ids"/>
