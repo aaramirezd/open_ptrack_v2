@@ -9,11 +9,6 @@ network:
       - type: kinect2
         id: "kinect2_a"
         people_detector: hog
-  - pc: "PC2"
-    sensors:
-      - type: kinect2
-        id: "kinect2_b"
-        people_detector: hog
   - pc: "PC3"
     sensors:
       - type: kinect2

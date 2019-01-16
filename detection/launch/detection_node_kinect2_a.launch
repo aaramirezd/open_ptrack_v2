@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<!-- SESSION ID: 1542712725 -->
+<!-- SESSION ID: 1547573458 -->
 <launch>
 
   <arg name="enable_people_tracking" default="true" />
-  <arg name="enable_pose" default="true" />
-  <arg name="enable_object" default="true" />
+  <arg name="enable_pose" default="false" />
+  <arg name="enable_object" default="false" />
   <arg name="sensor_name" default="kinect2_a" />
 
   <!-- true  = Munaro Based OPT Detection -->
@@ -12,7 +12,7 @@
   <arg name="munaro_detection_enabled"         default="true" />
 
   <!-- Launch the sensor -->
-  <include file="$(find opt_utils)/launch/kinect2_bridge_ir.launch">
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
     <arg name="base_name"         value="$(arg sensor_name)" />
     <arg name="publish_tf"       value="true" />
   </include>

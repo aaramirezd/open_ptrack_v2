@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-
-<!-- SESSION ID: 1542712725 -->
-
+<!-- SESSION ID: 1547573458 -->
 <launch>
 
   <arg name="enable_people_tracking" default="true" />
   <arg name="enable_pose" default="true" />
   <arg name="enable_object" default="true" />
+  <arg name="enable_ros2udp2file" default="false" />
+  <arg name="data_path" default="$(env HOME)/output_file.txt"/>
   <!-- Load calibration results -->
   <include file="$(find opt_calibration)/launch/opt_calibration_results.launch"/>
 
@@ -31,7 +31,10 @@
   </group>
 
   <!-- UDP messaging -->
-  <include file="$(find opt_utils)/launch/ros2udp_converter.launch"/>
+  <include file="$(find opt_utils)/launch/ros2udp_converter.launch">
+    <arg name="data_path" value="$(arg data_path)" />
+    <arg name="record_data" value="$(arg enable_ros2udp2file)"/>
+  </include>
 
   <!-- Visualization -->
   <include file="$(find opt_utils)/launch/multicamera_visualization.launch"/>
